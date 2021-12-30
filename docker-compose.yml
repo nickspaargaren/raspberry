@@ -24,3 +24,16 @@ services:
       - HOMEBRIDGE_CONFIG_UI_PORT=8581
     volumes:
       - ./homebridge:/homebridge
+
+  domoticz:
+    image: domoticz/domoticz
+    container_name: domoticz
+    restart: unless-stopped
+    devices:
+      - "/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_AB54UCXR-if00-port0:/dev/ttyUSB0"
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./config:/opt/domoticz/userdata
+    environment:
+      - TZ=Europe/Amsterdam
