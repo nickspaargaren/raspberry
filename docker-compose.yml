@@ -2,6 +2,7 @@ version: '3'
 services:
   torproxy:
     image: ufud/rpi-torproxy
+    container_name: torproxy
     restart: always
     ports:
       - "9001:9001"
