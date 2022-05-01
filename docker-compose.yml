@@ -10,21 +10,6 @@ services:
       - "9050:9050"
       - "8118:8118"
 
-  homebridge:
-    image: oznu/homebridge:latest
-    container_name: homebridge
-    restart: always
-    ports:
-      - "8581:8581"
-    environment:
-      - tz=Europe/Amsterdam
-      - PGID=1000
-      - PUID=1000
-      - HOMEBRIDGE_CONFIG_UI=1
-      - HOMEBRIDGE_CONFIG_UI_PORT=8581
-    volumes:
-      - ./homebridge:/homebridge
-
   domoticz:
     image: domoticz/domoticz
     container_name: domoticz
