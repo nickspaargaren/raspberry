@@ -1,9 +1,5 @@
 version: "3"
 
-volumes:
-  pihole:
-  dnsmasq:
-
 services:
   homeassistant:
     container_name: homeassistant
