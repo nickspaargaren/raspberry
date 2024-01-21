@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 volumes:
   pihole:
@@ -15,18 +15,18 @@ services:
       - "9050:9050"
       - "8118:8118"
 
-  domoticz:
-    image: domoticz/domoticz
-    container_name: domoticz
-    restart: unless-stopped
-    devices:
-      - "/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_AB54UCXR-if00-port0:/dev/ttyUSB0"
-    ports:
-      - "8080:8080"
+  homeassistant:
+    container_name: homeassistant
+    image: "ghcr.io/home-assistant/home-assistant:stable"
     volumes:
-      - ./config:/opt/domoticz/userdata
-    environment:
-      - TZ=Europe/Amsterdam
+      - /config_homeassistant:/config
+      - /etc/localtime:/etc/localtime:ro
+      - /run/dbus:/run/dbus:ro
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
+    devices:
+      - "/dev/ttyUSB0:/dev/ttyUSB0"
 
   unbound:
     container_name: unbound
