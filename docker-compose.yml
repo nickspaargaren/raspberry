@@ -5,16 +5,6 @@ volumes:
   dnsmasq:
 
 services:
-  torproxy:
-    image: ufud/rpi-torproxy
-    container_name: torproxy
-    restart: always
-    ports:
-      - "9001:9001"
-      - "9030:9030"
-      - "9050:9050"
-      - "8118:8118"
-
   homeassistant:
     container_name: homeassistant
     image: "ghcr.io/home-assistant/home-assistant:stable"
