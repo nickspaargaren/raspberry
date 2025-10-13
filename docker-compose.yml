@@ -12,7 +12,7 @@ services:
     privileged: true
     network_mode: host
     devices:
-      - "/dev/ttyUSB0:/dev/ttyUSB0"
+      - "/dev/bus/usb:/dev/bus/usb"
 
   adguardhome:
     image: adguard/adguardhome
