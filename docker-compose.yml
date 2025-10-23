@@ -31,3 +31,25 @@ services:
       - "443:443/tcp"
       - "853:853/tcp"
       - "3000:3000/tcp"
+    networks:
+      - dns_network
+    depends_on:
+      - unbound
+
+  unbound:
+    container_name: unbound
+    image: "klutchell/unbound:1.24.1"
+    volumes:
+      - ./unbound/unbound.conf:/opt/unbound/etc/unbound/unbound.conf:ro
+    networks:
+      dns_network:
+        ipv4_address: 172.19.0.2
+    restart: unless-stopped
+
+networks:
+  dns_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.19.0.0/16
+          gateway: 172.19.0.1
