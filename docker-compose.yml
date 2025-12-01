@@ -20,10 +20,11 @@ services:
     image: openthread/border-router:latest
     restart: unless-stopped
     network_mode: host
+    privileged: true
     cap_add:
       - NET_ADMIN
     devices:
-      - "/dev/ttyACM0:/dev/ttyACM0"
+      - "/dev/serial/by-id/usb-Nabu_Casa_Home_Assistant_Connect_ZBT-1_269b0d6ff8caed11ac05cb71cda106c3-if00-port0:/dev/ttyUSB0"
       - "/dev/net/tun:/dev/net/tun"
     volumes:
       - /var/lib/otbr:/data
