@@ -15,6 +15,21 @@ services:
       - "/dev/bus/usb:/dev/bus/usb"
       - "/dev/serial/by-id:/dev/serial/by-id"
 
+  otbr:
+    container_name: otbr
+    image: openthread/border-router:latest
+    restart: unless-stopped
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - "/dev/ttyACM0:/dev/ttyACM0"
+      - "/dev/net/tun:/dev/net/tun"
+    volumes:
+      - /var/lib/otbr:/data
+    env_file:
+      - ./otbr-env.list
+
   adguardhome:
     image: adguard/adguardhome
     container_name: adguardhome
