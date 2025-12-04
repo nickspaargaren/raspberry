@@ -12,8 +12,7 @@ services:
     privileged: true
     network_mode: host
     devices:
-      - "/dev/bus/usb:/dev/bus/usb"
-      - "/dev/serial/by-id:/dev/serial/by-id"
+      - "/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_AB54UCXR-if00-port0:/dev/ttyUSB1"
 
   otbr:
     container_name: otbr
