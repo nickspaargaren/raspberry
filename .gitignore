@@ -2,7 +2,7 @@
 !.github/
 !.github/**
 !.gitignore
-!docker-compose.yml
+!compose.yaml
 !README.md
 !otbr-env.list
 !unbound/

@@ -11,7 +11,7 @@ Home / Raspberry Pi setup.
 Check out this repository to your Raspberry Pi and run:
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 After starting the docker containers, configure AdGuard Home:
