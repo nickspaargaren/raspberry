@@ -36,7 +36,7 @@ services:
 
   unbound:
     container_name: unbound
-    image: "klutchell/unbound:1.24.1"
+    image: "klutchell/unbound:1.25.0"
     volumes:
       - ./unbound/unbound.conf:/opt/unbound/etc/unbound/unbound.conf:ro
     networks:
