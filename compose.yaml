@@ -13,7 +13,7 @@ services:
       - "/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_AB54UCXR-if00-port0:/dev/ttyUSB1"
 
   adguardhome:
-    image: adguard/adguardhome
+    image: adguard/adguardhome:v0.107.74
     container_name: adguardhome
     restart: unless-stopped
     volumes:
